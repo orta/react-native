@@ -106,8 +106,7 @@ The very final step is to create the JavaScript module that defines the interfac
 
 ```js
 // ImageView.js
-
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types'
 import { requireNativeComponent, View } from 'react-native';
 
 var iface = {
