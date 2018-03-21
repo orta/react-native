@@ -559,43 +559,48 @@ workflows:
       - checkout_code:
           filters: *filter-ignore-gh-pages
 
-      # Run lint, flow, and other checks
-      - analyze:
+     - test_podspec:
           filters: *filter-ignore-gh-pages
           requires:
             - checkout_code
 
-      # Test JavaScript
-      - test_javascript:
-          filters: *filter-ignore-gh-pages
-          requires:
-            - checkout_code
+      # # Run lint, flow, and other checks
+      # - analyze:
+      #     filters: *filter-ignore-gh-pages
+      #     requires:
+      #       - checkout_code
 
-      # Test JavaScript using Node 6, the minimum supported version
-      - test_javascript_node6_compatibility:
-          filters: *filter-ignore-gh-pages
+      # # Test JavaScript
+      # - test_javascript:
+      #     filters: *filter-ignore-gh-pages
+      #     requires:
+      #       - checkout_code
 
-      # Test Android
-      - test_android:
-          filters: *filter-ignore-gh-pages
-          requires:
-            - checkout_code
+      # # Test JavaScript using Node 6, the minimum supported version
+      # - test_javascript_node6_compatibility:
+      #     filters: *filter-ignore-gh-pages
 
-      # Test iOS & tvOS
-      - test_ios:
-          filters: *filter-ignore-gh-pages
-          requires:
-            - checkout_code
-      - test_tvos:
-          filters: *filter-ignore-gh-pages
-          requires:
-            - checkout_code
+      # # Test Android
+      # - test_android:
+      #     filters: *filter-ignore-gh-pages
+      #     requires:
+      #       - checkout_code
 
-      # End-to-end tests
-      - test_ios_e2e:
-          filters: *filter-ignore-gh-pages
-          requires:
-            - checkout_code
+      # # Test iOS & tvOS
+      # - test_ios:
+      #     filters: *filter-ignore-gh-pages
+      #     requires:
+      #       - checkout_code
+      # - test_tvos:
+      #     filters: *filter-ignore-gh-pages
+      #     requires:
+      #       - checkout_code
+
+      # # End-to-end tests
+      # - test_ios_e2e:
+      #     filters: *filter-ignore-gh-pages
+      #     requires:
+      #       - checkout_code
 
   # Only runs on PRs
   analyze:
